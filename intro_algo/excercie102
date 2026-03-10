@@ -1,0 +1,26 @@
+Algorithm Insertion_Sort
+Var
+    arr : array of integer
+    i, j, key, n : integer
+Begin
+    Read(n)
+    For i ← 0 to n-1 Do
+        Read(arr[i])
+    EndFor
+
+    For i ← 1 to n-1 Do
+        key ← arr[i]
+        j ← i - 1
+
+        While j ≥ 0 and arr[j] > key Do
+            arr[j + 1] ← arr[j]
+            j ← j - 1
+        EndWhile
+
+        arr[j + 1] ← key
+    EndFor
+
+    For i ← 0 to n-1 Do
+        Write(arr[i])
+    EndFor
+End
