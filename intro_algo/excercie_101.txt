@@ -1,0 +1,30 @@
+Algorithm Sentence_Statistics
+Var
+    ch : character
+    length, words, vowels : integer
+Begin
+    length ← 0
+    words ← 1
+    vowels ← 0
+
+    Read(ch)
+
+    While ch ≠ '.' Do
+        length ← length + 1
+
+        If ch = ' ' Then
+            words ← words + 1
+        EndIf
+
+        If ch = 'a' Or ch = 'e' Or ch = 'i' Or ch = 'o' Or ch = 'u'
+           Or ch = 'A' Or ch = 'E' Or ch = 'I' Or ch = 'O' Or ch = 'U' Then
+            vowels ← vowels + 1
+        EndIf
+
+        Read(ch)
+    EndWhile
+
+    Write("Length = ", length)
+    Write("Words = ", words)
+    Write("Vowels = ", vowels)
+End
