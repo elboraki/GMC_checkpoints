@@ -1,0 +1,30 @@
+.App {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+}
+
+.players-section {
+  width: min(1100px, 100%);
+  text-align: center;
+}
+
+.players-section h1 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #111827;
+}
+
+.players-section p {
+  margin: 0 auto 2rem;
+  max-width: 640px;
+  color: #374151;
+}
+
+.players-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
