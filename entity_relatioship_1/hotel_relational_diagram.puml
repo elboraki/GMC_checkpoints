@@ -1,0 +1,51 @@
+@startuml hotel_relational_diagram
+title Hotel Management - Relational Diagram (MLD)
+
+hide circle
+skinparam linetype ortho
+
+entity "TYPE" as TYPE {
+  *Type_Id : INT <<PK>>
+  --
+  Type_Name : VARCHAR
+}
+
+entity "CATEGORY" as CATEGORY {
+  *Category_Id : INT <<PK>>
+  --
+  Category_Name : VARCHAR
+  Price : DECIMAL
+  Beds_numbers : INT
+}
+
+entity "HOTEL" as HOTEL {
+  *Hotel_Id : INT <<PK>>
+  --
+  Hotel_name : VARCHAR
+  #Type_Id : INT <<FK>>
+}
+
+entity "ROOM" as ROOM {
+  *Room_Id : INT <<PK>>
+  --
+  Floor : INT
+  #Hotel_Id : INT <<FK>>
+  #Category_Id : INT <<FK>>
+}
+
+entity "EMPLOYEE" as EMPLOYEE {
+  *Employee_Id : INT <<PK>>
+  --
+  Employee_Name : VARCHAR
+  Employee_Speciality : VARCHAR
+  #Hotel_Id : INT <<FK>>
+  #Manager_Id : INT <<FK>>
+}
+
+HOTEL }o--|| TYPE : "Type_Id"
+ROOM }o--|| HOTEL : "Hotel_Id"
+ROOM }o--|| CATEGORY : "Category_Id"
+EMPLOYEE }o--|| HOTEL : "Hotel_Id"
+EMPLOYEE }o--o| EMPLOYEE : "Manager_Id"
+
+@enduml
